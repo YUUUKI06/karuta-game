@@ -52,29 +52,28 @@ header {
     border: 3.5px solid #24652c;
     border-radius: 8px;
     
-    /* 1. 恢復直立長方形比例（高 200px），牌身不再扁掉 */
-    height: 200px;
+    /* 🎯 1. 重設為第二張圖的修長比例 (高度拉長至 260px) */
+    height: 260px;
     width: 100%;
-    aspect-ratio: auto;                     /* 取消強制比例，避免變橫長方形 */
-    padding: 12px 6px;
+    padding: 15px 8px;
     cursor: pointer;
     
     display: flex;
     justify-content: center;                /* 三列文字水平置中 */
     align-items: center;                    /* 文字垂直置中 */
     
-    /* 2. 直書與字級 */
+    /* 🎯 2. 字體大小設定 (1.1rem~1.15rem 閱讀最舒服) */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.15rem;                     /* 清晰小巧字級 */
+    font-size: 1.15rem;
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.5;                       /* 欄與欄（列與列）間距 */
+    line-height: 1.5;                       /* 三列之間的距離 */
     word-break: break-all;
     
-    /* 3. 精準控制高度：剛好容納 5 個字的高度（約 135px） */
-    max-height: 135px;                      /* 鎖定文字區塊，滿 5 個字（約135px）強迫折行，絕對不會出現 4 列 */
-    letter-spacing: 1px;
+    /* 🎯 3. 核心限制：限制直排文字高度剛好 5 個字 */
+    max-height: 5.2em;                      /* 滿 5 個字強制折行，穩穩維持三行直排 */
+    letter-spacing: 2px;                    /* 微調字距讓直排看起來更均勻 */
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.1s ease, background-color 0.2s;
