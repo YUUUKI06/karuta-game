@@ -49,36 +49,34 @@ header {
 }
 .karuta-card {
     background-color: rgb(231, 236, 228);
-    border: 3px solid #24652c;
-    border-radius: 8px;
+    border: 3.5px solid #24652c;
+    border-radius: 6px;
     
-    /* 🎯 1. 調整為類似撲克牌的修長長寬比 (寬:高 = 1:1.45) */
-    width: 100%;
-    aspect-ratio: 1 / 1.45;
-    padding: 12px 6px;
+    /* 1. 鎖定卡牌形狀（與你截圖完全一致的長寬比） */
+    height: 160px;
+    padding: 10px 4px;
     cursor: pointer;
     
     display: flex;
-    justify-content: center;                /* 多行文字水平居中 */
-    align-items: center;                    /* 文字垂直居中 */
+    justify-content: center;                /* 三列文字水平置中 */
+    align-items: center;                    /* 文字垂直置中 */
     
-    /* 🎯 2. 字體調小，設定為適中的 1rem */
+    /* 2. 直書與字級調整 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1rem;                        /* 縮小字體 */
+    font-size: 1.15rem;                     /* 適合這尺寸卡牌的清晰字級 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.35;                      /* 欄與欄（行與行）之間的間距 */
-    word-break: break-all;                  /* 強制拆行 */
+    line-height: 1.4;                       /* 欄與欄（列與列）之間的間距 */
+    word-break: break-all;                  /* 自動拆行 */
     
-    /* 🎯 3. 限定直排文字長度：精準控制每排最多 5 個平假名 */
-    max-height: 5ch;                        /* 滿 5 個字高度即自動推至下一排 */
-    letter-spacing: 0px;
+    /* 3. 🎯 核心關鍵：精準限制文字高度剛好只能放下 5 個字 */
+    max-height: 5.1em;                      /* 滿 5 個字的高度後，第 6 個字必被推至下一列 */
+    letter-spacing: 0px;                    /* 確保高度計算精準 */
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.1s ease, background-color 0.2s;
 }
-
 .karuta-card:active {
     transform: scale(0.96);               /* 按壓時微縮放反饋 */
 }
