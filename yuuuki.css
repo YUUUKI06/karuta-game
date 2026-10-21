@@ -52,31 +52,33 @@ header {
     border: 3.5px solid #24652c;
     border-radius: 8px;
     
-    /* 🎯 1. 重設為第二張圖的修長比例 (高度拉長至 260px) */
-    height: 260px;
+    /* 1. 卡牌尺寸與外觀 */
+    height: 200px;                          /* 可依喜好微調高度 */
     width: 100%;
-    padding: 15px 8px;
+    padding: 16px 10px;                     /* 上邊距：決定第一個字距離卡牌頂部的距離 */
     cursor: pointer;
     
     display: flex;
-    justify-content: center;                /* 三列文字水平置中 */
-    align-items: center;                    /* 文字垂直置中 */
+    justify-content: center;                /* 三列文字整體在卡牌內水平居中 */
     
-    /* 🎯 2. 字體大小設定 (1.1rem~1.15rem 閱讀最舒服) */
+    /* 🎯 關鍵修改：強迫直排文字從頂端（上方）齊頭對齊，不再獨立垂直居中 */
+    align-items: start;                     
+    
+    /* 2. 直書與字級設定 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.15rem;
+    font-size: 1.15rem;                     /* 清晰適中的字級 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.5;                       /* 三列之間的距離 */
+    line-height: 1.5;                       /* 欄與欄（列與列）間距 */
     word-break: break-all;
     
-    /* 🎯 3. 核心限制：限制直排文字高度剛好 5 個字 */
-    max-height: 5.2em;                      /* 滿 5 個字強制折行，穩穩維持三行直排 */
-    letter-spacing: 2px;                    /* 微調字距讓直排看起來更均勻 */
+    /* 3. 每排固定 5 個字的核心控制 */
+    max-height: 5.2em;                      /* 滿 5 個字高度自動折行 */
+    letter-spacing: 2px;                    /* 微調字距 */
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.1s ease, background-color 0.2s;
+    transition: transform 0.1s ease;
 }
 .karuta-card:active {
     transform: scale(0.96);               /* 按壓時微縮放反饋 */
