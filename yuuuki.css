@@ -53,16 +53,15 @@ header {
     border-radius: 8px;
     
     /* 1. 卡牌尺寸與外觀 */
+    karuta-card {
     height: 200px;                          /* 可依喜好微調高度 */
     width: 100%;
-    padding: 16px 10px;                     /* 上邊距：決定第一個字距離卡牌頂部的距離 */
+    padding: 16px 10px;                     /* 上邊距：第一個字距離卡牌頂部的距離 */
     cursor: pointer;
     
     display: flex;
-    justify-content: center;                /* 三列文字整體在卡牌內水平居中 */
-    
-    /* 🎯 關鍵修改：強迫直排文字從頂端（上方）齊頭對齊，不再獨立垂直居中 */
-    align-items: start;                     
+    justify-content: flex-start;            /* 🎯 頂格對齊：文字由上往下統一從最頂端起跑 */
+    align-items: center;                     
     
     /* 2. 直書與字級設定 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
