@@ -56,7 +56,7 @@ header {
     border-radius: 6px;
     
     /* 核心修改：固定高度與內邊距，剛好容納 5 個假名 */
-    height: 180px;                          /* 調整高度使第 6 個字自動折至下一行 */
+    height: 200px;                          /* 調整高度使第 6 個字自動折至下一行 */
     padding: 14px 6px;                      /* 上下內邊距 */
     cursor: pointer;
     
