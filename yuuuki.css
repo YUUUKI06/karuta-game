@@ -56,7 +56,7 @@ header {
     border-radius: 6px;
     
     /* 核心修改：固定高度與內邊距，剛好容納 5 個假名 */
-    height: 200px;                          /* 調整高度使第 6 個字自動折至下一行 */
+    height: 190px;                          /* 調整高度使第 6 個字自動折至下一行 */
     padding: 14px 6px;                      /* 上下內邊距 */
     cursor: pointer;
     
@@ -66,7 +66,7 @@ header {
     
     /* 核心直書與字體設定 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.3rem;                      /* 調整字體大小配合高度 */
+    font-size: 1.5rem;                      /* 調整字體大小配合高度 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
