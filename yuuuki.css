@@ -66,7 +66,7 @@ header {
     
     /* 2. 核心直書與字體設定 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.2rem;                      /* 縮回適合 3 列的標準字級 */
+    font-size: 1.05rem;                      /* 縮回適合 3 列的標準字級 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
