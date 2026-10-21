@@ -1,0 +1,198 @@
+ @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Hina+Mincho&family=Noto+Sans+HK:wght@100..900&family=Shippori+Mincho&family=Yusei+Magic&family=Zen+Old+Mincho&display=swap');
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {   
+    background-color: rgb(239, 234, 204);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: rgb(154, 61, 56); 
+    color: rgb(245, 245, 245);
+    padding: 15px 10px;
+    text-align: center;
+}
+
+#reader-display {
+    background-color: #f7dcb5;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 700px;
+    border: 5px solid #a0522d;
+    border-radius: 8px;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --------------------------------------------------
+   卡牌容器與卡牌設定 (手機預設：2x2 排版)
+   -------------------------------------------------- */
+#card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 手機端：左右各1張 (2欄) */
+    gap: 12px;                             /* 卡牌間距 */
+    width: 92%;
+    max-width: 420px;                      /* 手機上的最大寬度 */
+    margin: 20px auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.karuta-card {
+    background-color: rgb(231, 236, 228);
+    border: 4px solid #24652c;
+    border-radius: 6px;                    /* 微圓角更像真實紙牌 */
+    
+    height: 190px;                         /* 控制高度讓文字自動斷成 3 行 */
+    padding: 12px 8px;                     /* 內邊距，避免文字貼邊 */
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;               /* 多行文字水平居中 */
+    align-items: center;                   /* 文字垂直居中 */
+    
+    /* 核心直書設定 */
+    font-family: "Hina Mincho", "Shippori Mincho", serif;
+    font-size: 1.25rem;                    /* 適中字體大小 */
+    font-weight: bold;
+    writing-mode: vertical-rl;            /* 由上至下、由右至左直排 */
+    text-orientation: upright;
+    line-height: 1.5;                      /* 行間距 */
+    word-break: break-all;                 /* 自動折行 */
+    
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.1s ease, background-color 0.2s;
+}
+
+.karuta-card:active {
+    transform: scale(0.96);               /* 按壓時微縮放反饋 */
+}
+
+/* --------------------------------------------------
+   電腦 / 平板大螢幕優化 (@media 媒體查詢)
+   -------------------------------------------------- */
+@media (min-width: 650px) {
+    #card-container {
+        grid-template-columns: repeat(4, 1fr); /* 電腦端：一排 4 張 */
+        max-width: 750px;                      /* 放寬電腦端的總寬度 */
+        gap: 20px;
+    }
+
+    .karuta-card {
+        height: 230px;                         /* 電腦端卡牌放大一點 */
+        font-size: 1.4rem;                     /* 電腦端字體放大 */
+        padding: 15px 10px;
+    }
+}
+
+/* 控制區與結果樣式 */
+#controls {
+    background-color: rgb(118, 45, 41); 
+    color: rgb(255, 255, 255);
+    padding: 30px 15px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#start-btn {
+    background-color: #f5a623;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+#start-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.correct {
+    border-color: #4CAF50 !important;
+    background-color: #ddfbc6 !important;
+}
+
+.incorrect {
+    border-color: #F44336 !important;
+    background-color: #fec9d1 !important;
+}
+.highlight {
+    color: rgb(255, 13, 0);      /* 深紅色（可依喜好調整，如 #d32f2f 或 #b71c1c） */
+    font-weight: bold;   /* 加粗文字 */
+}
+/* 新增多選區塊與標籤樣式 */
+#filter-controls {
+    margin: 15px auto;
+    width: 92%;
+    max-width: 650px;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #a0522d;
+}
+
+.filter-title {
+    font-weight: bold;
+    color: #4a2c11;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.chip-label {
+    background-color: #fff;
+    border: 1.5px solid #a0522d;
+    border-radius: 16px;
+    padding: 5px 12px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #4a2c11;
+}
+
+.chip-label:has(input:checked) {
+    background-color: #9a3d38;
+    color: #ffffff;
+    border-color: #762d29;
+}
+
+.sub-btn {
+    background-color: #a0522d;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+.sub-btn:hover {
+    background-color: #762d29;
+}

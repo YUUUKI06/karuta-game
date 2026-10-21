@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎴競技歌牌模擬器</title>
+  <link rel="stylesheet" href="yuuuki.css">
+  <script src="yuuuki.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>🎴小倉百人一首 - 抽牌挑戰🎴</h1>
+        <p>點擊按鈕，將會出現「上句」！</p>
+    </header>
+    <main> 
+        <!-- 複選控制區 -->
+        <div id="filter-controls">
+            <div class="filter-title">選擇枚札類別（可複選）：</div>
+            <div class="checkbox-group">
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="1" checked> 一枚札 (7張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="2"> 二枚札 (10張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="3"> 三枚札 (12張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="4"> 四枚札 (16張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="5"> 五枚札 (5張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="6"> 六枚札 (12張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="7"> 七枚札 (14張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="8"> 八枚札 (8張)</label>
+                <label class="chip-label"><input type="checkbox" class="kimari-checkbox" value="16"> 十六枚札 (16張)</label>
+            </div>
+            <div style="margin-top: 10px;">
+                <button id="select-all-btn" class="sub-btn">全選</button>
+                <button id="clear-all-btn" class="sub-btn">取消全選</button>
+                <!-- 點擊此按鈕才開始抽題 -->
+                <button id="apply-btn" class="sub-btn" style="background-color: #2e7d32; font-weight: bold;">🎯 確認開始</button>
+            </div>
+        </div>
+
+        <!-- 上句朗讀區 -->
+        <div id="reader-display">
+            <p id="upper-stanza"></p>
+        </div>
+
+        <h2>取札</h2>  
+
+        <!-- 下句歌牌區 -->
+        <div id="card-container"></div>
+
+        <!-- 控制區 -->
+        <div id="controls">
+            <button id="start-btn">🔊 朗讀下一首</button>
+            <p id="status-message">準備就緒。</p>
+        </div>      
+    </main>
+</body>
+</html>
