@@ -50,29 +50,31 @@ header {
 .karuta-card {
     background-color: rgb(231, 236, 228);
     border: 3.5px solid #24652c;
-    border-radius: 6px;
+    border-radius: 8px;
     
-    /* 1. 鎖定卡牌形狀（與你截圖完全一致的長寬比） */
-    height: 160px;
-    padding: 10px 4px;
+    /* 1. 恢復直立長方形比例（高 200px），牌身不再扁掉 */
+    height: 200px;
+    width: 100%;
+    aspect-ratio: auto;                     /* 取消強制比例，避免變橫長方形 */
+    padding: 12px 6px;
     cursor: pointer;
     
     display: flex;
     justify-content: center;                /* 三列文字水平置中 */
     align-items: center;                    /* 文字垂直置中 */
     
-    /* 2. 直書與字級調整 */
+    /* 2. 直書與字級 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.15rem;                     /* 適合這尺寸卡牌的清晰字級 */
+    font-size: 1.15rem;                     /* 清晰小巧字級 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.4;                       /* 欄與欄（列與列）之間的間距 */
-    word-break: break-all;                  /* 自動拆行 */
+    line-height: 1.5;                       /* 欄與欄（列與列）間距 */
+    word-break: break-all;
     
-    /* 3. 🎯 核心關鍵：精準限制文字高度剛好只能放下 5 個字 */
-    max-height: 5.1em;                      /* 滿 5 個字的高度後，第 6 個字必被推至下一列 */
-    letter-spacing: 0px;                    /* 確保高度計算精準 */
+    /* 3. 精準控制高度：剛好容納 5 個字的高度（約 135px） */
+    max-height: 135px;                      /* 鎖定文字區塊，滿 5 個字（約135px）強迫折行，絕對不會出現 4 列 */
+    letter-spacing: 1px;
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.1s ease, background-color 0.2s;
