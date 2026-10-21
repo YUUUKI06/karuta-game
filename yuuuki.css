@@ -41,41 +41,39 @@ header {
    -------------------------------------------------- */
 #card-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 手機端：左右各1張 (2欄) */
-    gap: 12px;                             /* 卡牌間距 */
-    width: 92%;
-    max-width: 420px;                      /* 手機上的最大寬度 */
-    margin: 20px auto;
-    user-select: none;
-    -webkit-user-select: none;
+    grid-template-columns: repeat(2, 1fr);  /* 手機端雙排卡牌 */
+    gap: 15px;
+    padding: 10px;
+    max-width: 450px;
+    margin: 0 auto;
 }
-
 .karuta-card {
     background-color: rgb(231, 236, 228);
-    border: 4px solid #24652c;
-    border-radius: 6px;
+    border: 3px solid #24652c;
+    border-radius: 8px;
     
-    /* 1. 卡牌外框尺寸保持固定 */
-    height: 190px;
-    padding: 12px 8px;
+    /* 🎯 1. 調整為類似撲克牌的修長長寬比 (寬:高 = 1:1.45) */
+    width: 100%;
+    aspect-ratio: 1 / 1.45;
+    padding: 12px 6px;
     cursor: pointer;
     
     display: flex;
     justify-content: center;                /* 多行文字水平居中 */
     align-items: center;                    /* 文字垂直居中 */
     
-    /* 2. 核心直書與字體設定 */
+    /* 🎯 2. 字體調小，設定為適中的 1rem */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.05rem;                      /* 縮回適合 3 列的標準字級 */
+    font-size: 1rem;                        /* 縮小字體 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.4;                       /* 欄與欄（行與行）之間的間距 */
+    line-height: 1.35;                      /* 欄與欄（行與行）之間的間距 */
     word-break: break-all;                  /* 強制拆行 */
     
-    /* 3. 🎯 純 CSS 核心：限定直排高度剛好等於 5 個字長度 */
-    max-height: 5ch;                        /* 5ch 代表滿 5 個字即達到極限，第 6 個字必掉到下一列 */
-    letter-spacing: 0px;                    /* 歸零字距，確保 5ch 算得精準 */
+    /* 🎯 3. 限定直排文字長度：精準控制每排最多 5 個平假名 */
+    max-height: 5ch;                        /* 滿 5 個字高度即自動推至下一排 */
+    letter-spacing: 0px;
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.1s ease, background-color 0.2s;
