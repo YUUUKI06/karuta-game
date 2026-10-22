@@ -52,32 +52,34 @@ header {
     border: 3.5px solid #24652c;
     border-radius: 8px;
     
-    /* 1. 卡牌尺寸設定 */
-    height: 200px;                          /* 可依喜好微調高度 */
+    /* 1. 卡牌尺寸設定：維持你喜歡的長方形修長長寬比例 */
+    height: 220px;                          /* 卡牌高度 */
     width: 100%;
-    padding: 18px 12px;                     /* 上邊距：精準控制第一個字離頂部的留白距離 */
+    padding: 16px 10px;                     /* 上下內邊距 */
     cursor: pointer;
     
-    /* 2. 🎯 改用區塊排版：確保所有直列的第一個字 100% 靠頂對齊 */
-    display: block;
-    text-align: center;                     /* 讓 3 列文字整體在卡牌內水平居中 */
+    /* 2. Flex 排版控制 */
+    display: flex;
+    justify-content: center;                /* 三欄文字整體在卡牌內水平居中 */
+    align-items: flex-start;                /* 強制所有直列的第一個字齊頭靠上對齊 */
     
     /* 3. 直書與字級設定 */
     font-family: "Hina Mincho", "Shippori Mincho", serif;
-    font-size: 1.15rem;                     /* 清晰適中的字級 */
+    font-size: 1.1rem;                     /* 適中清晰字級 */
     font-weight: bold;
     writing-mode: vertical-rl;             /* 由上至下、由右至左直排 */
     text-orientation: upright;
-    line-height: 1.5;                       /* 欄與欄（列與列）之間的左右距離 */
+    line-height: 1.45;                      /* 欄與欄（列與列）之間的左右間距 */
     word-break: break-all;
     
-    /* 4. 每排固定 5 個字的核心控制 */
-    max-height: 5.2em;                      /* 滿 5 個字高度自動折行 */
-    letter-spacing: 2px;                    /* 微調字距 */
+    /* 4. 🎯 核心鎖定：限定直排高度剛好等於 5 個字的高度 */
+    max-height: 5.1em;                      /* 一滿 5 個字高度就強迫切換到下一列 */
+    letter-spacing: 1px;                    /* 微調字距 */
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.1s ease;
 }
+
 .karuta-card:active {
     transform: scale(0.96);               /* 按壓時微縮放反饋 */
 }
